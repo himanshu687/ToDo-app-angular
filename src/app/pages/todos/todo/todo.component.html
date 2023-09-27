@@ -1,0 +1,17 @@
+<div>
+  <mat-card
+    class="card example-ripple-container"
+    matRipple
+    [matRippleCentered]="true"
+  >
+    <mat-icon *ngIf="todo.completed" class="complete-icon"> task_alt </mat-icon>
+
+    <mat-icon *ngIf="!todo.completed" class="incomplete-icon">
+      pending_actions
+    </mat-icon>
+
+    <mat-card-content class="card-content">
+      {{ todo.title.length > 100 ? todo.title.substring(0, 101) : todo.title }}
+    </mat-card-content>
+  </mat-card>
+</div>

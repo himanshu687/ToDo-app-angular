@@ -1,0 +1,10 @@
+<div class="container">
+
+  <app-loader *ngIf="isLoading"></app-loader>
+
+  <mat-grid-list *ngIf="!isLoading" [cols]="gridCol" rowHeight="150px">
+    <mat-grid-tile *ngFor="let todo of todos; index as i" class="todos-wrapper">
+      <app-todo [todo]="todo"></app-todo>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
