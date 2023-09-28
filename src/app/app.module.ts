@@ -21,6 +21,7 @@ import { TodoComponent } from './pages/todos/todo/todo.component';
 import { TodosService } from './pages/todos/todos.service';
 import { HttpClientModule } from '@angular/common/http';
 import { LoaderComponent } from './components/loader/loader.component';
+import { TodoDetailsModalComponent } from './pages/todos/todo-details-modal/todo-details-modal.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { LoaderComponent } from './components/loader/loader.component';
     TodosComponent,
     TodoComponent,
     LoaderComponent,
+    TodoDetailsModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,10 @@
 <div class="container">
   <app-loader *ngIf="isLoading"></app-loader>
 
+  <div class="empty-todo-msg" *ngIf="!isLoading && todos.length === 0">
+    <h2>No ToDo's to show.</h2>
+  </div>
+
   <div *ngIf="!isLoading && todos.length !== 0">
     <mat-grid-list [cols]="gridCol" rowHeight="150px">
       <mat-grid-tile

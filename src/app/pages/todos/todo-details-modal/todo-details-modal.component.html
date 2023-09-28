@@ -1,0 +1,21 @@
+<div class="todo-details-modal">
+  <h1 mat-dialog-title>ToDo Details</h1>
+  <div mat-dialog-content class="modal-content">
+    <div>
+      <label for="">Title:</label>
+      <p>
+        {{ data.title }}
+      </p>
+    </div>
+
+    <div>
+      <label>Completion Status:</label>
+      <p *ngIf="data.completed" style="color: green">Completed</p>
+      <p *ngIf="!data.completed" style="color: #d80032">Pending</p>
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="action-button">
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
+</div>

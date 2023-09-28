@@ -7,5 +7,12 @@
 }
 
 .paginator {
-  margin-top: 64px;
+  margin-top: 70px;
+}
+
+.empty-todo-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 }

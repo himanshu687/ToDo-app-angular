@@ -1,0 +1,21 @@
+.todo-details-modal {
+  width: 400px;
+  background-color: #f1f3ff;
+}
+
+.todo-details-modal h1 {
+  text-align: center;
+}
+
+.modal-content {
+  font-size: 14px;
+}
+
+.modal-content label {
+  color: #000000;
+  font-weight: 500;
+}
+
+.action-button {
+  justify-content: center;
+}
