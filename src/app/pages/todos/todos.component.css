@@ -5,3 +5,7 @@
 .todos-wrapper {
   width: fit-content;
 }
+
+.paginator {
+  margin-top: 64px;
+}

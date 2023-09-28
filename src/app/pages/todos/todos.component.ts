@@ -1,7 +1,8 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+
 import { Todo } from './todo.model';
 import { TodosService } from './todos.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todos',
@@ -12,6 +13,8 @@ export class TodosComponent implements OnInit {
   todos: Todo[] = [];
   gridCol: number = 5;
   isLoading: boolean = false;
+  paginatorTodos: Todo[];
+  showFirstLastBtn: boolean;
 
   constructor(private todosService: TodosService) {}
 
@@ -20,9 +23,18 @@ export class TodosComponent implements OnInit {
 
     this.isLoading = true;
 
-    this.todosService.getTodos().subscribe((todos) => {
-      this.todos = todos;
-      this.isLoading = false;
+    this.todosService.getTodos().subscribe({
+      next: (todos: Todo[]) => {
+        this.todos = todos;
+        this.paginatorTodos = todos.slice(0, 10);
+      },
+      error: (error) => {
+        this.isLoading = false;
+        throw error;
+      },
+      complete: () => {
+        this.isLoading = false;
+      },
     });
   }
 
@@ -37,5 +49,27 @@ export class TodosComponent implements OnInit {
     else if (width > 800) this.gridCol = 3;
     else if (width > 600) this.gridCol = 2;
     else this.gridCol = 1;
+
+    if (width > 500) {
+      this.showFirstLastBtn = true;
+    } else {
+      this.showFirstLastBtn = false;
+    }
+  }
+
+  onPageChange(e: PageEvent) {
+    const startIndex = e.pageIndex * e.pageSize;
+    let endIndex = startIndex + e.pageSize;
+
+    if (endIndex > this.todos.length) {
+      endIndex = this.todos.length;
+    }
+
+    this.paginatorTodos = this.todos.slice(startIndex, endIndex);
+
+    window.scroll({
+      top: 0,
+      behavior: 'smooth',
+    });
   }
 }
