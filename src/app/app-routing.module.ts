@@ -6,6 +6,7 @@ import { TodosComponent } from './pages/todos/todos.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'todos', component: TodosComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

@@ -1,3 +1,6 @@
+Todo App is Deployed on Netlify Server
+https://todo-app-angular3.netlify.app
+
 # TodoApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
