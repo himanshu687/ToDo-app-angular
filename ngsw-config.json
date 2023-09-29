@@ -31,7 +31,7 @@
     {
       "name": "todo-api",
       "urls": [
-        "https://jsonplaceholder.typicode.com"
+        "https://jsonplaceholder.typicode.com/todos"
       ],
       "cacheConfig": {
         "strategy": "freshness",
